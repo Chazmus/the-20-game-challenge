@@ -9,6 +9,7 @@ size = Vector2(20, 113)
 [node name="Player1" type="RigidBody2D"]
 position = Vector2(30, 279)
 gravity_scale = 0.0
+lock_rotation = true
 script = ExtResource("1_mali5")
 upKey = 87
 DownKey = 83

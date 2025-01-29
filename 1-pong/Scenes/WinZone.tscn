@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqyqx3xxaej7d"]
+
+[ext_resource type="Script" path="res://Scripts/WinZone.cs" id="1_l7kw4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hppl"]
+size = Vector2(20, 659)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_l7kw4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-16, 324)
+shape = SubResource("RectangleShape2D_4hppl")

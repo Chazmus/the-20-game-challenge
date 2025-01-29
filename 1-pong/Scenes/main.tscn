@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://76v8t3a4f21"]
+
+[ext_resource type="Texture2D" uid="uid://cd52u3528nmf5" path="res://icon.svg" id="1_k431a"]
+[ext_resource type="PackedScene" uid="uid://e0lh40lbsty5" path="res://Scenes/player.tscn" id="3_60emj"]
+[ext_resource type="Script" path="res://Scripts/Ball.cs" id="3_riq1u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_la4rt"]
+size = Vector2(1163, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qnwil"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(3, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(571.5, 0)
+shape = SubResource("RectangleShape2D_la4rt")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(577, 2)
+scale = Vector2(9.31, 0.12)
+texture = ExtResource("1_k431a")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(3, 644)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(571.5, 0)
+shape = SubResource("RectangleShape2D_la4rt")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2"]
+position = Vector2(584, -1)
+scale = Vector2(9.31, 0.12)
+texture = ExtResource("1_k431a")
+
+[node name="Ball" type="RigidBody2D" parent="."]
+position = Vector2(554, 292)
+gravity_scale = 0.0
+script = ExtResource("3_riq1u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
+shape = SubResource("CircleShape2D_qnwil")
+
+[node name="Sprite2D" type="Sprite2D" parent="Ball"]
+scale = Vector2(0.146739, 0.133333)
+texture = ExtResource("1_k431a")
+
+[node name="Player1" parent="." instance=ExtResource("3_60emj")]
+
+[node name="Player2" parent="." instance=ExtResource("3_60emj")]
+position = Vector2(1089, 278)
+upKey = 73
+DownKey = 75

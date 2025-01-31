@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://blrcpkffw6tbu"]
+[gd_scene load_steps=3 format=3 uid="uid://blrcpkffw6tbu"]
 
 [ext_resource type="Script" path="res://Scripts/MainMenu.cs" id="1_vwsnk"]
+[ext_resource type="Script" path="res://Scripts/SelectionMenu.cs" id="2_6s3k8"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -19,3 +20,23 @@ offset_right = 832.0
 offset_bottom = 310.0
 theme_override_font_sizes/font_size = 200
 text = "Pong"
+
+[node name="SelectionMenu" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 568.0
+offset_top = 365.0
+offset_right = 608.0
+offset_bottom = 405.0
+script = ExtResource("2_6s3k8")
+
+[node name="Label" type="Label" parent="SelectionMenu"]
+layout_mode = 2
+text = "Start"
+
+[node name="Label2" type="Label" parent="SelectionMenu"]
+layout_mode = 2
+text = "Options"
+
+[node name="Label3" type="Label" parent="SelectionMenu"]
+layout_mode = 2
+text = "Quit"

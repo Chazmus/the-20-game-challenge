@@ -25,6 +25,18 @@ public partial class GameManger : Node2D
         _winZone2.BallEntered += () => AwardPoint(Player.Player1);
     }
 
+    public override void _Input(InputEvent @event)
+    {
+        base._Input(@event);
+        if(@event is InputEventKey keyEvent)
+        {
+            if(keyEvent.Pressed && keyEvent.GetKeyLabel() == Key.Escape)
+            {
+                GetTree().ChangeSceneToFile("res://Scenes/main_menu.tscn");
+            }
+        }
+    }
+
     private void AwardPoint(Player player)
     {
         _score[player]++;

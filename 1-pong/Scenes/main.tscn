@@ -1,23 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://76v8t3a4f21"]
+[gd_scene load_steps=9 format=3 uid="uid://76v8t3a4f21"]
 
 [ext_resource type="Texture2D" uid="uid://cd52u3528nmf5" path="res://icon.svg" id="1_k431a"]
 [ext_resource type="Script" path="res://Scripts/GameManger.cs" id="1_tifjc"]
 [ext_resource type="PackedScene" uid="uid://e0lh40lbsty5" path="res://Scenes/player.tscn" id="3_60emj"]
 [ext_resource type="Script" path="res://Scripts/Ball.cs" id="3_riq1u"]
 [ext_resource type="PackedScene" uid="uid://cqyqx3xxaej7d" path="res://Scenes/WinZone.tscn" id="5_qvwvf"]
+[ext_resource type="PackedScene" uid="uid://bd36h48y15xj0" path="res://Scenes/pause_menu.tscn" id="6_bn3lf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_la4rt"]
 size = Vector2(1163, 20)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qnwil"]
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("_winZone1", "_winZone2", "ball", "_player1Score", "_player2Score")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("_winZone1", "_winZone2", "ball", "_player1Score", "_player2Score", "_pauseMenu")]
 script = ExtResource("1_tifjc")
 _winZone1 = NodePath("WinZone1")
 _winZone2 = NodePath("WinZone2")
 ball = NodePath("Ball")
 _player1Score = NodePath("Label")
 _player2Score = NodePath("Label2")
+_pauseMenu = NodePath("PauseMenu")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
@@ -85,3 +87,5 @@ offset_right = 885.0
 offset_bottom = 148.0
 theme_override_font_sizes/font_size = 100
 text = "0"
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_bn3lf")]

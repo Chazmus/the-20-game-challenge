@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bd36h48y15xj0"]
+
+[ext_resource type="Script" path="res://Scripts/SelectionMenu.cs" id="1_0saml"]
+[ext_resource type="Script" path="res://Scripts/SelectableLabels/ContinueLabel.cs" id="2_o24ve"]
+[ext_resource type="Script" path="res://Scripts/SelectableLabels/ResetLabel.cs" id="3_ed7t2"]
+[ext_resource type="Script" path="res://Scripts/SelectableLabels/QuitLabel.cs" id="4_1yviw"]
+
+[node name="PauseMenu" type="Panel"]
+process_mode = 3
+visible = false
+offset_left = 519.0
+offset_top = 227.0
+offset_right = 675.0
+offset_bottom = 363.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 28.0
+offset_right = 110.0
+offset_bottom = 105.0
+script = ExtResource("1_0saml")
+
+[node name="Continue" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+script = ExtResource("2_o24ve")
+
+[node name="Reset" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Reset"
+script = ExtResource("3_ed7t2")
+
+[node name="Quit" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("4_1yviw")

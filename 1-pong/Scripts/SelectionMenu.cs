@@ -1,17 +1,21 @@
 using System.Collections.Generic;
-using Godot;
 using System.Linq;
+using Godot;
+using pong.Scripts.SelectableLabels;
+
+namespace pong.Scripts;
 
 public partial class SelectionMenu : VBoxContainer
 {
-    List<Label> menuOptions;
-    int currentIndex = 0;
+    List<SelectableLabel> menuOptions;
+    int currentIndex;
 
     public override void _Ready()
     {
         menuOptions = GetChildren()
-            .OfType<Label>().ToList();
+            .OfType<SelectableLabel>().ToList();
         menuOptions.First().AddThemeColorOverride("font_color", new Color(1, 0, 0));
+        menuOptions[currentIndex].GrabFocus();
     }
 
     public override void _Input(InputEvent @event)
@@ -29,21 +33,8 @@ public partial class SelectionMenu : VBoxContainer
 
             if (keyEvent.Pressed && keyEvent.GetKeyLabel() == Key.Enter)
             {
-                PerformSelection();
+                menuOptions[currentIndex].PerformAction();
             }
-        }
-    }
-
-    private void PerformSelection()
-    {
-        var selectedOption = menuOptions[currentIndex].Text;
-        if (selectedOption == "Start")
-        {
-            GetTree().ChangeSceneToFile("res://Scenes/main.tscn");
-        }
-        else if (selectedOption == "Quit")
-        {
-            GetTree().Quit();
         }
     }
 

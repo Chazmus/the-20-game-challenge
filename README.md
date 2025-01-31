@@ -8,3 +8,4 @@ Using Godot and C# to try and push my skills will (maybe) add random notes and i
 
 Don't set `Position` on `RigidBody2D` turns out they are made to be interacted with like physic objects, setting things like velocity and applying forces etc. If you do set the Position - any collider child does not get moved!
 This is obvious from the docs, I should've read the docs. https://docs.godotengine.org/en/stable/classes/class_rigidbody2d.html
+Setting GlobalPosition is apparently ok, however, make sure to do this at the end of the process method after any "MoveAndSlide" or "MoveAndCollide" is done. See. Ball.cs in Pong.
